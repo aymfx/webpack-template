@@ -1,9 +1,15 @@
-import Vue from 'vue'
-import App from './components/app.vue'
+import san from 'san';
 
+import App from './components/App.san';
 
-new Vue({
-    el: '#app',
-    components: { App },
-    template: '<App/>'
-})
+import {
+    router
+} from 'san-router';
+
+router.add({
+    rule: '/',
+    Component: App,
+    target: '#app'
+});
+
+router.start()

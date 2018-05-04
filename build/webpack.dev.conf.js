@@ -9,12 +9,11 @@ const path = require('path');
 
 const env = require('../config/prod.env')
 
-const webpackConfig = merge(baseWebpackConfig, {
-    mode: "production",
-    output: {
-        path: config.build.assetsRoot,
-        filename: utils.assetsPath('js/[name].[chunkhash].js'),
-        chunkFilename: utils.assetsPath('js/[id].[chunkhash].js')
+const devwebpackConfig = merge(baseWebpackConfig, {
+    mode: "development",
+    devServer:{
+        contentBase: '../docs',
+        hot: true
     },
     plugins: [
         new HtmlWebpackPlugin({
@@ -23,13 +22,12 @@ const webpackConfig = merge(baseWebpackConfig, {
             template: 'index.html',
             inject: true
         }),
-        new CleanWebpackPlugin(['docs'], {
-            root: path.resolve(__dirname, '..')
-        }),
         new webpack.DefinePlugin({
             'process.env': env
         }),
+        new webpack.HotModuleReplacementPlugin(),
+        new webpack.NamedModulesPlugin() // HMR shows correct file names in console on update.
     ]
 })
 
-module.exports = webpackConfig
+module.exports = devwebpackConfig
