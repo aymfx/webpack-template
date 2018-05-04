@@ -9,7 +9,7 @@ const config = require('../config')
 const chalk = require('chalk') // 命令行彩色输出
 const ora = require('ora') // 命令行环境的 loading效果
 const rm = require('rimraf') //以包的形式包装rm -rf命令，用来删除文件和文件夹的，不管文件夹是否为空，都可删除
-const spinner = ora('构建生产环境的项目')
+const spinner = ora('构建生产环境的项目\n')
 spinner.start()
 
 rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory),err =>{ //删除文件夹并执行回调

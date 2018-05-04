@@ -1,8 +1,9 @@
 'use strict'
 const path = require('path')
 const config = require('../config')
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
+const { VueLoaderPlugin } = require('vue-loader')
+// const vueLoaderConfig = require('./vue-loader.conf')
+
 function resolve(dir) {
     return path.join(__dirname, '../', dir)
 }
@@ -26,19 +27,28 @@ module.exports = {
         }
     },
     plugins: [
-        new HtmlWebpackPlugin({
-            title: 'app',
-            filename: 'index.html',
-            template: 'index.html',
-            inject: true
-        }),
-        new CleanWebpackPlugin([config.build.assetsRoot]),
-
+        new VueLoaderPlugin()
     ],
     module:{
-        rules:[
+        rules:[{
+            test: /\.vue$/,
+            include: [resolve('src')],
+            loader: 'vue-loader',
+            
+        },
             {
-                
+                test: /\.js$/,
+                include: [resolve('src'), resolve('test'), resolve('node_modules/webpack-dev-server/client')],
+                use:{
+                    loader: 'babel-loader',
+                }
+            },
+            {
+                test: /\.css$/,
+                use: [
+                    'vue-style-loader',
+                    'css-loader'
+                ]
             }
         ]
     }
