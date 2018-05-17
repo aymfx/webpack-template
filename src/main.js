@@ -1,9 +1,1 @@
-import Vue from 'vue'
-import App from './components/app.vue'
-
-
-new Vue({
-    el: '#app',
-    components: { App },
-    template: '<App/>'
-})
+console.log(1212);
