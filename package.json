@@ -3,10 +3,12 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
+  "sideEffects": false,
   "scripts": {
     "start": "webpack-dev-server --open",
     "watch": "webpack --watch",
-    "server": "node app.js"
+    "server": "node app.js",
+    "build": "webpack"
   },
   "keywords": [],
   "author": "",
