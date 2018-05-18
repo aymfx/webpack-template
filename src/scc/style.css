@@ -1,4 +1,17 @@
+@font-face{
+    font-family: 'lyFont';
+    src: url('../fonts/pf.ttf') format(ttf);
+    font-weight: 700;
+    font-style: normal;
+}
+
 body{
     background: #ff9;
     height: 100%;
+    color: #000;
+    font-family:lyFont;
+}
+img{
+    width: 100px;
+    height: 100px;
 }
