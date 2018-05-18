@@ -2,20 +2,22 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const ManifestPlugin = require('webpack-plugin-manifest');
+const webpack = require('webpack');
 
 module.exports = {
     mode: "development",
     devtool: 'inline-source-map',
     entry: {
         app:'./src/index.js',
-        print:'./src/js/print.js'
     },
     output: {
         filename: '[name].[hash].js',
-        path: path.resolve(__dirname, 'dist')
+        path: path.resolve(__dirname, 'dist'),
+        publicPath:'/'
     },
     devServer:{
         contentBase:'./dist',
+        hot:true
     },
     module:{
         rules:[
@@ -46,6 +48,8 @@ module.exports = {
             template:'index.html'
         }),
         new CleanWebpackPlugin(['dist']),
-        new ManifestPlugin()
+        new ManifestPlugin(),
+         new webpack.NamedModulesPlugin(),
+         new webpack.HotModuleReplacementPlugin()
     ]
 };

@@ -11,3 +11,10 @@ function component() {
     return element;
 }
 document.body.appendChild(component());
+
+if(module.hot){
+    module.hot.accept('./js/print.js',function(){
+         console.log(12122)
+         printMe();
+    })
+}
