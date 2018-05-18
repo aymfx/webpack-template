@@ -1,4 +1,5 @@
 import {cube} from './js/math'
+import './scc/demo.css'
 
 function component(){
     var element = document.createElement('pre');
