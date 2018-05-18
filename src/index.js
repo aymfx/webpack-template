@@ -1,5 +1,9 @@
 import {cube} from './js/math'
 import './scc/demo.css'
+import _ from 'lodash';
+console.log(
+    _.join(['Another', 'module', 'loaded!'], ' ')
+);
 
 function component(){
     var element = document.createElement('pre');

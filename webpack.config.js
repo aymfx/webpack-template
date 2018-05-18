@@ -8,12 +8,13 @@ module.exports = {
     mode: "development",
     devtool: 'inline-source-map',
     entry: {
-        app:'./src/index.js',
+        index:'./src/index.js',
     },
     output: {
         filename: '[name].[hash].js',
         path: path.resolve(__dirname, 'dist'),
-        publicPath:'/'
+        publicPath:'/',
+        chunkFilename: '[name].bundle.js',
     },
     devServer:{
         contentBase:'./dist',
