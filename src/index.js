@@ -1,14 +1,9 @@
-import _ from 'lodash';
-import numRef from './api/ref.json';
+function component() {
+    var element = document.createElement('div');
+    element.innerHTML = join(['Hello', 'webpack'], ' ');
+    return element;
+    console.log(1212)
+    alert('Hmmm, this probably isn\'t a great idea...')
+}
 
-export function numToWord(num) {
-    return _.reduce(numRef, (accum, ref) => {
-        return ref.num === num ? ref.word : accum;
-    }, '');
-};
-
-export function wordToNum(word) {
-    return _.reduce(numRef, (accum, ref) => {
-        return ref.word === word && word.toLowerCase() ? ref.num : accum;
-    }, -1);
-};
+document.body.appendChild(component());

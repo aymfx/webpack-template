@@ -10,7 +10,7 @@ module.exports = {
         app: './src/index.js'
     },
     output: {
-        filename: '[name].[chunkhash].js',
+        filename: '[name].[hash].js',
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/'
     },
@@ -36,5 +36,8 @@ module.exports = {
             template: 'index.html'
         }),
         new CleanWebpackPlugin(['dist']),
+        new webpack.ProvidePlugin({
+            join:['lodash','join']
+        })
     ]
 };
