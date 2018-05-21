@@ -11,6 +11,7 @@
     "watch": "webpack --watch",
     "server": "node app.js",
     "build": "webpack --config webpack.prod.conf.js",
+    "build2": "webpack --config webpack.config.js",
     "dev": "webpack-dev-server --open --config webpack.dev.conf.js"
   },
   "keywords": [],

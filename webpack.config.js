@@ -9,12 +9,16 @@ module.exports = {
     devtool: 'inline-source-map',
     entry: {
         index:'./src/index.js',
+        vendor:[
+            'lodash'
+        ]
     },
+    
     output: {
         filename: '[name].[chunkhash].js',
         path: path.resolve(__dirname, 'dist'),
         publicPath:'/',
-        chunkFilename: '[name].bundle.js',
+        // chunkFilename: '[name].bundle.js',
     },
     devServer:{
         contentBase:'./dist',
@@ -44,6 +48,9 @@ module.exports = {
         ]
     },
     plugins:[
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor'
+        }),
         new HtmlWebpackPlugin({
             title:'test',
             template:'index.html'

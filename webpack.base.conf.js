@@ -7,10 +7,10 @@ const webpack = require('webpack');
 
 module.exports = {
     entry: {
-        app: './src/index.js',
+        app: './src/index.js'
     },
     output: {
-        filename: '[name].[hash].js',
+        filename: '[name].[chunkhash].js',
         path: path.resolve(__dirname, 'dist'),
         publicPath: '/'
     },
